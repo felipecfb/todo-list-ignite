@@ -16,7 +16,9 @@ export function Input() {
         border="none"
         borderRadius="8px"
       />
-      <Button bg="blueDark" p="4" minH="54px" borderRadius="8px">
+      <Button bg="blueDark" p="4" minH="54px" borderRadius="8px" _hover={{
+        bg: "blue"
+      }}>
         <Text color="white" fontSize={14} mr="2">
           Criar
         </Text>

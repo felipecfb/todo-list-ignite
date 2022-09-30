@@ -4,7 +4,7 @@ import { Input } from './components/Input'
 
 function App() {
     return (
-      <Flex bg="background" direction="column">
+      <Flex bg="background" direction="column" minH="100vh">
         <Header />
         <Input />
       </Flex>
