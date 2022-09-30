@@ -1,6 +1,6 @@
 import { extendTheme } from "@chakra-ui/react";
 
-export const colors = {
+const colors = {
   background: "#454545",
   gray: {
     100: "#F2F2F2",
@@ -18,4 +18,13 @@ export const colors = {
   danger: "#E25858",
 };
 
-export const theme = extendTheme({ colors });
+const components = {
+  Divider: {
+    baseStyle: {
+      borderColor: "gray.400",
+      borderWidth: "1px",
+    },
+  },
+};
+
+export const theme = extendTheme({ colors, components });
