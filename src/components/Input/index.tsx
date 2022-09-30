@@ -3,14 +3,12 @@ import { AddIcon } from "@chakra-ui/icons";
 import { useState } from "react";
 import { useTask } from "../../hooks/tasks";
 
-export function Input() {
-  const { createTask } = useTask();
+type Props = {
+  handleCreate: (title: string) => void;
+}
 
-  const [task, setTask] = useState("");
-
-  function handleCreate() {
-    createTask(task);
-  }
+export function Input({ handleCreate }: Props) {
+  const { title, setTitle } = useTask();
 
   return (
     <Flex minHeight="54px" maxW="736px" mx="auto" w="100%" mt="-27px">
@@ -25,8 +23,8 @@ export function Input() {
         mr="2"
         border="none"
         borderRadius="8px"
-        value={task}
-        onChange={(e) => setTask(e.target.value)}
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
       />
       <Button
         bg="blueDark"
@@ -36,7 +34,7 @@ export function Input() {
         _hover={{
           bg: "blue",
         }}
-        onClick={handleCreate}
+        onClick={() => handleCreate(title)}
       >
         <Text color="white" fontSize={14} mr="2">
           Criar

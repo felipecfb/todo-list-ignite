@@ -1,16 +1,23 @@
 import { Box, Divider } from "@chakra-ui/react";
-import { useState } from "react";
 import { Body } from "./Body";
 import { Header } from "./Header";
 
-export function TaskList() {
-  const [taskDone, setTaskDone] = useState(true);
+type Task = {
+  id: number;
+  title: string;  
+  done: boolean;
+}
 
+type Props = {
+  tasks: Task[];
+}
+
+export function TaskList({ tasks }: Props) {
   return (
-    <Box maxW="736px" mx="auto" w="100%" mt="16">
-      <Header />
-      {!taskDone && <Divider colorScheme="gray.400" />}
-      <Body />
-    </Box>
+      <Box maxW="736px" mx="auto" w="100%" mt="16">
+        <Header />
+        {!tasks && <Divider colorScheme="gray.400" />}
+        <Body tasks={tasks} />
+      </Box>
   );
 }
