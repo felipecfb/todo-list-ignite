@@ -1,9 +1,13 @@
-import { useState } from 'react'
+import { Flex } from '@chakra-ui/react'
 import { Header } from './components/Header'
+import { Input } from './components/Input'
 
 function App() {
     return (
-      <Header />
+      <Flex bg="background" direction="column">
+        <Header />
+        <Input />
+      </Flex>
   )
 }
 
