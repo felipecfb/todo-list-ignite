@@ -1,9 +1,7 @@
 import { CheckIcon, DeleteIcon } from "@chakra-ui/icons";
-import { Box, Flex, HStack, Image, Tag, Text } from "@chakra-ui/react";
-import { useState } from "react";
+import { Flex, HStack, Image, Tag, Text } from "@chakra-ui/react";
 
 import NoHaveTasks from "../../assets/noHaveTasks.svg";
-import { useTask } from "../../hooks/tasks";
 
 type Task = {
   id: number;
@@ -13,9 +11,10 @@ type Task = {
 
 type Props = {
   tasks: Task[];
+  deleteTask: (id: number) => void;
 };
 
-export function Body({ tasks }: Props) {
+export function Body({ tasks, deleteTask }: Props) {
   return (
     <Flex justify="center" align="center" direction="column">
       {tasks ? (
@@ -45,7 +44,10 @@ export function Body({ tasks }: Props) {
               >
                 {task.title}
               </Text>
-              <DeleteIcon color="gray.300" />
+              <DeleteIcon
+                color="gray.300"
+                onClick={() => deleteTask(task.id)}
+              />
             </HStack>
           </Flex>
         ))

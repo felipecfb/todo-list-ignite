@@ -15,4 +15,5 @@ export interface TaskContextProps {
   setTitle: Dispatch<React.SetStateAction<string>>;
   tasks: Task[];
   createTask: (title: string) => void;
+  deleteTask: (id: number) => void;
 }

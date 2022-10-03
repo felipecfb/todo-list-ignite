@@ -19,6 +19,12 @@ function TaskProvider({ children }: TaskProviderProps) {
     setTitle("");
   }
 
+  function deleteTask(id: number) {
+    const removeTask = tasks.filter((task) => task.id !== id);
+
+    setTasks(removeTask);
+  }
+
   return (
     <TaskContext.Provider
       value={{
@@ -26,6 +32,7 @@ function TaskProvider({ children }: TaskProviderProps) {
         setTitle,
         tasks,
         createTask,
+        deleteTask,
       }}
     >
       {children}
