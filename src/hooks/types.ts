@@ -16,4 +16,5 @@ export interface TaskContextProps {
   tasks: Task[];
   createTask: (title: string) => void;
   deleteTask: (id: number) => void;
+  doneTask: (id: number) => void;
 }

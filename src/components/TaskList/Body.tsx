@@ -12,9 +12,10 @@ type Task = {
 type Props = {
   tasks: Task[];
   deleteTask: (id: number) => void;
+  doneTask: (id: number) => void;
 };
 
-export function Body({ tasks, deleteTask }: Props) {
+export function Body({ tasks, deleteTask, doneTask }: Props) {
   return (
     <Flex justify="center" align="center" direction="column">
       {tasks ? (
@@ -35,6 +36,7 @@ export function Body({ tasks, deleteTask }: Props) {
                 borderColor={task.done ? "purple" : "blue"}
                 borderRadius="100%"
                 size="md"
+                onClick={() => doneTask(task.id)}
               >
                 {task.done && <CheckIcon color="white" w={2} h={2} />}
               </Tag>

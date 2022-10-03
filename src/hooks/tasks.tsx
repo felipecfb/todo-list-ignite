@@ -25,6 +25,14 @@ function TaskProvider({ children }: TaskProviderProps) {
     setTasks(removeTask);
   }
 
+  function doneTask(id: number) {
+    const done = tasks.map((task) =>
+      task.id === id ? { ...task, done: !task.done } : task
+    );
+
+    setTasks(done);
+  }
+
   return (
     <TaskContext.Provider
       value={{
@@ -33,6 +41,7 @@ function TaskProvider({ children }: TaskProviderProps) {
         tasks,
         createTask,
         deleteTask,
+        doneTask,
       }}
     >
       {children}
