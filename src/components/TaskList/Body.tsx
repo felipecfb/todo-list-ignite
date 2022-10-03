@@ -16,9 +16,11 @@ type Props = {
 };
 
 export function Body({ tasks, deleteTask, doneTask }: Props) {
+  console.log(tasks);
+
   return (
     <Flex justify="center" align="center" direction="column">
-      {tasks ? (
+      {tasks.length !== 0 ? (
         tasks.map((task) => (
           <Flex
             w="100%"
@@ -36,6 +38,7 @@ export function Body({ tasks, deleteTask, doneTask }: Props) {
                 borderColor={task.done ? "purple" : "blue"}
                 borderRadius="100%"
                 size="md"
+                cursor="pointer"
                 onClick={() => doneTask(task.id)}
               >
                 {task.done && <CheckIcon color="white" w={2} h={2} />}
@@ -48,6 +51,7 @@ export function Body({ tasks, deleteTask, doneTask }: Props) {
               </Text>
               <DeleteIcon
                 color="gray.300"
+                cursor="pointer"
                 onClick={() => deleteTask(task.id)}
               />
             </HStack>

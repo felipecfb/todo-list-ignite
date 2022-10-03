@@ -1,6 +1,11 @@
 import { Flex, Tag, Text } from "@chakra-ui/react";
 
-export function Header() {
+type Props = {
+  tasksCreated: number;
+  tasksCompleted: number;
+};
+
+export function Header({ tasksCreated, tasksCompleted }: Props) {
   return (
     <Flex align="center" justify="space-between" w="100%" mb="6">
       <Flex>
@@ -8,7 +13,7 @@ export function Header() {
           Tarefas criadas
         </Text>
         <Tag bg="gray.400" color="white">
-          0
+          {tasksCreated}
         </Tag>
       </Flex>
       <Flex>
@@ -16,7 +21,7 @@ export function Header() {
           Concluídas
         </Text>
         <Tag bg="gray.400" color="white">
-          0
+          {tasksCreated === 0 ? 0 : `${tasksCompleted} de ${tasksCreated}`}
         </Tag>
       </Flex>
     </Flex>
